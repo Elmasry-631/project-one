@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Elmasry
+{% endblock %}
+{% block header %}
+	<div class="container">
+		<ol class="breadcrumb my-5" style="background-color: #cecbcb">
+			<li class="breadcrumb-item p-2">Home</li>
+		</ol>
+	</div>
+{% endblock %}
+{% block table %}
+	<div class="table-responsive container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Project Name</th>
+					<th>Description</th>
+					<th>manager</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for project in projects %}
+					<tr>
+						<td>
+							<a class="text-decoration-none btn btn-link" href="{% url 'boards_list' project.id %}">{{ project.project_name }}</a>
+						</td>
+						<td>{{ project.project_description }}</td>
+						<td>{{ project.project_manager }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}
