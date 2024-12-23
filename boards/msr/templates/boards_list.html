@@ -1,37 +1,41 @@
-{%extends 'base.html'%}
-{%block title%}{{projects_list.project_name}}{%endblock%}
+{% extends 'base.html' %}
+{% block title %}
+	{{ projects_list.project_name }}
+{% endblock %}
 {% block header %}
-<div class="container">
-    <ol class="breadcrumb my-sm-5" style="background-color: #cecbcb">
-        <li class="breadcrumb-item p-2"><a class="text-decoration-none btn-link" href="{% url 'home' %}">Home</a></li>
-        <li class="breadcrumb-item active p-2">{{projects_list.project_name}}</li>
-    </ol>
-</div>
+	<div class="container">
+		<ol class="breadcrumb my-sm-5" style="background-color: #cecbcb">
+			<li class="breadcrumb-item p-2">
+				<a class="text-decoration-none btn-link" href="{% url 'home' %}">Home</a>
+			</li>
+			<li class="breadcrumb-item active p-2">{{ projects_list.project_name }}</li>
+		</ol>
+	</div>
 {% endblock %}
 {% block table %}
-<div class="container">
-<a href="{% url 'add_board' board_id%}" class="btn btn-danger">Add Project</a>
-<div class="table-responsive container">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Project Name</th>
-                <th>Description</th>
-                <th>manager</th>
-                <th>Created by</th>
-                <th>Created in</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{projects_list.project_name}}</td>
-                <td>{{projects_list.project_description}}</td>
-                <td>{{projects_list.project_manager}}</td>
-                <td>{{projects_list.created_by}}</td>
-                <td>{{projects_list.created_at}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</div>
+	<div class="container">
+		<a href="{% url 'add_board' board_id %}" class="btn btn-danger">Add Project</a>
+		<div class="table-responsive container">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Project Name</th>
+						<th>Description</th>
+						<th>manager</th>
+						<th>Created by</th>
+						<th>Created in</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ projects_list.project_name }}</td>
+						<td>{{ projects_list.project_description }}</td>
+						<td>{{ projects_list.project_manager }}</td>
+						<td>{{ projects_list.created_by }}</td>
+						<td>{{ projects_list.created_at }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 {% endblock %}
